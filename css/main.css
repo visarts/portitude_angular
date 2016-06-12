@@ -1,0 +1,74 @@
+/* overall styles */
+html, body {
+  margin:0;
+  background: #2e2f32;
+  color:#fffff0;
+  font: 14px 'arial', sans-serif;
+}
+
+h2, h3 {
+  margin:0; margin-bottom: 10px;
+  
+}
+
+h2 {
+  font-family: 'Adobe Garamond Pro'; font-size: 25px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+/* override bootstrap */
+
+.container {
+ 
+}
+
+
+
+/* header directive styles */
+.header {
+  background: #161616; color:white; margin-bottom: 20px; 
+}
+
+.header h1 {
+  padding:5px; padding-left:0;
+}
+.header h1 a {
+  font-size:29px; color:#fafafa;
+}
+.header .pull-right a {
+  background:#2E2F32; padding:10px; color:#ABA07E; border-top-left-radius: 8px; border-top-right-radius: 8px; 
+  font-size:18px;
+}
+.header .pull-right a:hover {
+  background:#111; text-decoration: none;
+}
+
+/* styles for feature blocks */
+.feature {
+  padding:20px; margin-bottom: 20px; border-radius: 8px;
+  box-shadow: 10px 10px 10px #1f1f1f;
+}
+
+.feature-title {
+  padding:10px; padding-left: 20px; margin: -20px -20px 10px -20px;
+  border-top-right-radius: 8px; border-top-left-radius: 8px;
+}
+
+.arts-feature {
+  background:#272e40; border:0;
+}
+
+.arts-feature .feature-title {
+  background: #161d30 linear-gradient(#272e40, #161d30);
+}
+
+.lit-feature {
+  background:#50303C; border:0;
+}
+
+.lit-feature .feature-title {
+  background: #4e4024 linear-gradient(#50303C, #3e202c);
+}

@@ -1,0 +1,93 @@
+content
+--arts
+--literature
+--photography
+js
+--services
+--directives
+--controllers
+----arts
+-----/artsMainCtrl.js
+-----/artsArtistCtrl.js
+-----/artsPeriodCtrl.js
+-----/artsCountryCtrl.js
+----lit
+-----/litMainCtrl.js
+-----/litAuthorCtrl.js
+-----/litGenreCtrl.js
+-----/litCountryCtrl.js
+---/mainCtrl.js
+--routing
+---/mainView.js
+---/artsView.js
+---/litView.js
+-/application.js
+lib
+--angular
+templates
+--arts
+---/artsMain.tpl.html
+---/artsArtist.tpl.html
+---/artsCountry.tpl.html
+--lit
+---/litMain.tpl.html
+---/litAuthor.tpl.html
+---/litCountry.tpl.html
+
+
+MODULES
+>>Routing:
+--main.view [lit.view, arts.view, ngRoute]
+--lit.view [ngRoute]
+--arts.view [ngRoute]
+
+>>Application:
+--main [ngRoute, main.view, arts, lit]
+
+>>Control:
+--arts []
+--lit []
+
+
+
+
+
+
+application.js -- 
+var app = angular.module('main', ['ngRoute', 'main.view']);
+
+mainCtrl.js --
+var app = angular.module('main');
+app.controller('main.ctrl', ['$scope', function($scope) {
+
+});
+
+Routing -- 
+main routing module [inject other routing modules]
+arts routing module + config
+lit routing module + config
+
+mainView.js --
+var mainView = angular.module('main.view', ['arts.view', 'lit.view']);
+mainView.config(['$routeProvider', function($routeProvider) {
+$routeProvider.
+when('/', {templateUrl: 'index.html'});
+}]);
+
+artsView.js --
+var artsView = angular.module('arts.view', ['ngRoute']);
+artsRoute.config(['$routeProvider', function($routeProvider) {
+$routeProvider.
+when('/arts', {templateUrl: 'templates/arts/artsMain.tpl.html', controller: 'artsMain.ctrl'}).
+when('/arts/:artist', {templateUrl: 'templates/arts/artsArtist.tpl.html', controller: 'artsArtist.ctrl'}).
+when('/arts/:country', {templateUrl: 'templates/arts/artsCountry.tpl.html', controller: 'artsCountry.ctrl'});
+}]);
+
+litView.js --
+var litView = angular.module('lit.view', ['ngRoute']);
+litRoute.config(['$routeProvider', function($routeProvider) {
+$routeProvider.
+when('/literature, {templateUrl: 'templates/lit/litMain.tpl.html', controller: 'litMain.ctrl'}).
+when('/literature/:author', {templateUrl: 'templates/lit/litAuthor.tpl.html', controller: 'litAuthor.ctrl'}).
+when('/literature/:country', {templateUrl: 'templates/lit/litCountry.tpl.html', controller: 'litCountry.ctrl'});
+}]);
